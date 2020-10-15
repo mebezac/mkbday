@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Is It Michael Klett's Birthday?</title>
+    <style type="text/css">
+      body, html {
+        margin: 0;
+      }
+      div#full {
+        height: 100vh;
+      }
+      .center {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+      }
+      #title {
+        font-weight: bold;
+        font-size: 15vw;
+        font-family: Arial, sans-serif;
+        text-decoration: none;
+        color: black;
+      }
+    </style>
+    <script type="text/javascript">
+      window.onload = function() {
+        var date = new Date();
+        var today = date.getMonth().toString() + date.getDate().toString();
+
+        function partyTime(string, color) {
+          document.getElementById("title").textContent = string;
+          document.body.style.background = color;
+          document.body.style.backgroundImage = "url('mk.gif')";
+          var audio = document.createElement('audio');
+          audio.src = 'music.mp3'
+          audio.loop = true
+          audio.play();
+        }
+
+        if (today == '914') {
+          partyTime('YES (OBSERVED)', 'blue');
+        } else if (today == '105') {
+          partyTime('YES (ACTUAL)', 'red');
+        }
+
+        document.getElementById("party-button").onclick = function fun() {
+          partyTime('PARTY!', 'green');
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div id="full">
+      <div class="center">
+        <h1 id="title">NO</h1>
+        <button type="button" name="button" id="party-button" style="display: none">Party!</button>
+      </div>
+    </div>
+  </body>
+</html>
